@@ -16,7 +16,7 @@ namespace DutyFinder
 
         public void InsertData(string code, int duty)
         {
-            Console.WriteLine("Код ТНВЭД: " + code + " Пошлина: " + duty + "%");
+            Console.WriteLine("Код ТНВЭД: " + code + "  Пошлина: " + duty + "%");
         }
     }
 }

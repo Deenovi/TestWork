@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseUtility.cs" />
     <Compile Include="Models\CodeInfo.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="CodeInfoProvider.cs" />

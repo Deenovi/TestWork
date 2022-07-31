@@ -13,7 +13,6 @@ namespace DummyApp
         static void Main(string[] args)
         {
             CodeInfoProvider codeInfoProvider = new CodeInfoProvider();
-            DatabaseUtility databaseUtility = new DatabaseUtility();
             int maxDutyValue;
             string templateCode;
 

@@ -15,11 +15,12 @@ namespace DutyFinder
         public CodeInfoProvider()
         {
             _parser = new Parser();
-            _codeInfoList = new List<CodeInfo>();
         }
 
         public List<CodeInfo> GetCodeInfoList(string templateCode)
         {
+            _codeInfoList = new List<CodeInfo>();
+
             var codeList = _parser.GetCodeList(templateCode);
 
             foreach (var code in codeList)

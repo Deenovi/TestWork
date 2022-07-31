@@ -38,14 +38,17 @@ namespace DutyFinder
             {
                 var nodes = _document.DocumentNode.SelectNodes(xpath);
 
-                foreach (var node in nodes)
+                if (nodes != null)
                 {
-                    parsedCode = node.SelectSingleNode("a").InnerText;
-                    parsedCode = Regex.Replace(parsedCode, @"\t|\n|\r| ", "");
-
-                    if (parsedCode.Length == digitsCount)
+                    foreach (var node in nodes)
                     {
-                        _codeList.Add(parsedCode);
+                        parsedCode = node.SelectSingleNode("a").InnerText;
+                        parsedCode = Regex.Replace(parsedCode, @"\t|\n|\r| ", "");
+
+                        if (parsedCode.Length == digitsCount)
+                        {
+                            _codeList.Add(parsedCode);
+                        }
                     }
                 }
             }

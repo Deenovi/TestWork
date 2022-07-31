@@ -20,7 +20,7 @@ namespace DummyApp
             Console.Title = "Поиск номеров ТНВЭД с максимальными пошлинами";
             Console.Write("Пожалуйста введите номер ТНВЭД: ");
             templateCode = Console.ReadLine(); //Code = 6102901000
-            Console.WriteLine("Идет обработка...");
+            Console.WriteLine("Идет обработка...\n");
       
             List<CodeInfo> codeInfoList = codeInfoProvider
                                           .GetCodeInfoList(templateCode)
@@ -30,14 +30,21 @@ namespace DummyApp
             {
                 maxDutyValue = codeInfoList[0].Duty;
 
+                Console.WriteLine("Номер ТНВЭД\tПошлина");
+
                 foreach (var codeInfo in codeInfoList)
                 {
                     if (codeInfo.Duty == maxDutyValue)
                     {
-                        databaseUtility.InsertData(codeInfo.Code, codeInfo.Duty);
+                        Console.WriteLine(codeInfo.Code + "\t" + codeInfo.Duty + "%");
                     }
                 }
             }
+            else
+            {
+                Console.WriteLine("Номера не найдены");
+            }
+
 
             Console.ReadLine();
         }

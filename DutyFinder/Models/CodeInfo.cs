@@ -8,13 +8,13 @@ namespace DutyFinder.Models
 {
     public class CodeInfo
     {
-        public CodeInfo(string code, int duty)
+        public CodeInfo(string code, float duty)
         {
             Code = code;
             Duty = duty;
         }
 
         public string Code { get; set; }
-        public int Duty { get; set; }
+        public float Duty { get; set; }
     }
 }

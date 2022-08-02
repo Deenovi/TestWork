@@ -13,7 +13,7 @@ namespace DummyApp
         static void Main(string[] args)
         {
             CodeInfoProvider codeInfoProvider = new CodeInfoProvider();
-            int maxDutyValue;
+            float maxDutyValue;
             string templateCode;
 
             Console.Title = "Поиск номеров ТНВЭД с максимальными пошлинами";

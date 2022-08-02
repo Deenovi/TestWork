@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -56,7 +57,7 @@ namespace DutyFinder
             return _codeList;
         }
 
-        public int GetDutyByCode(string code)
+        public float GetDutyByCode(string code)
         {
             string url = "https://www.tks.ru/db/tnved/tree/c" + code + "/show/ajax";
             string xpath = "/div/div/div[2]/p[2]";
@@ -68,9 +69,17 @@ namespace DutyFinder
             {
                 parsedDuty = _document.DocumentNode.SelectSingleNode(xpath).InnerText;
 
-                if (parsedDuty.Split(',').Count() > 1 && parsedDuty.Contains('%'))
+                if (parsedDuty.Contains('%'))
                 {
-                    return Int32.Parse(parsedDuty.Split(',')[0].Trim('%'));
+                    if (parsedDuty.Split(',').Count() > 1)
+                    {
+                        return float.Parse(parsedDuty.Split(',')[0].Trim('%'));
+                    }
+                    else
+                    {
+                        return float.Parse(Regex.Replace(parsedDuty, @"%| ", ""), 
+                                           CultureInfo.InvariantCulture.NumberFormat);
+                    }
                 }
             }
 
